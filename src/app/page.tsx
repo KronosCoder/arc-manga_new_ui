@@ -6,7 +6,12 @@ export default function page() {
   return (
     <div className="h-full w-screen">
       <DesktopNavbar />
-      <Sidebar />
+      <main className="w-full h-full flex">
+        <Sidebar />
+        <div className="right__side flex flex-grow w-full h-full py-24 px-20 transition-all duration-500 ease-in-out">
+          <h1>Right Side</h1>
+        </div>
+      </main>
     </div>
   )
 }

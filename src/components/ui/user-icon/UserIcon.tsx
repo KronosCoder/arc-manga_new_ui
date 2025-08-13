@@ -1,6 +1,7 @@
+'use client';
 import React, { useEffect, useRef, useState } from 'react';
 import { User } from 'lucide-react';
-import Overlay from '../background-overlay/overlay';
+import Overlay from '../background-overlay/Overlay';
 import UserModal from '../user-modal/UserModal';
 
 export default function UserIcon() {
