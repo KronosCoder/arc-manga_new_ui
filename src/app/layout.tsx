@@ -1,4 +1,5 @@
-import './globals.css';
+import '../themes/globals.css';
+import SidebarProvider from '@/contexts/SidebarContext';
 
 export default function RootLayout({
   children,
@@ -8,7 +9,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen vsc-domain-localhost vsc-initialized">
-        {children}
+        <SidebarProvider>
+          {children}
+        </SidebarProvider>
       </body>
     </html>
   )

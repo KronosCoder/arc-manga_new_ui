@@ -6,7 +6,7 @@ import { AlignLeft } from 'lucide-react';
 import { useSidebarContext } from '@/contexts/SidebarContext';
 
 
-export default function Navbar() {
+export default function DesktopNavbar() {
   const [isScroll, setScroll] = useState<boolean>(false);
   const { isExpanded, toggleSidebar } = useSidebarContext();
 
@@ -26,8 +26,8 @@ export default function Navbar() {
   }, [isScroll]);
 
   return (
-      <header className={`fixed lg:top-0 border border-b-orange-400 ${isScroll ? 'bg-white' : 'bg-transparent'} w-screen flex justify-end py-2 z-[2]`}>
-        <div className="page__container flex items-center justify-between">
+      <header className={`fixed lg:top-0 ${isScroll ? 'bg-white border border-b-orange-400' : 'bg-transparent'} w-screen flex justify-end py-3 z-[2]`}>
+        <div className="w-full flex items-center justify-between px-10">
           <div className="flex items-center justify-start">
             <AlignLeft className='cursor-pointer' onClick={toggleSidebar} />
           </div>

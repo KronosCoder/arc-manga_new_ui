@@ -1,3 +1,5 @@
+'use client';
+
 import React, { ReactNode, useContext, useState } from 'react';
 import { createContext } from 'react';
 
@@ -22,7 +24,7 @@ interface Props {
 export default function SidebarProvider({ children }: Props) {
     const [isExpanded, setIsExpanded] = useState<boolean>(true);
     const toggleSidebar = () => {
-        return setIsExpanded((prev) => !prev);
+        setIsExpanded((prev) => !prev);
     }
 
 
