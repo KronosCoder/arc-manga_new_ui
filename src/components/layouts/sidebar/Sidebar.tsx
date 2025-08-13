@@ -1,11 +1,12 @@
-  'use client';
-  import React, { useState } from 'react';
-  import Image from 'next/image';
-  import { X } from 'lucide-react';
-  import Link from 'next/link';
+'use client';
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { X } from 'lucide-react';
+import Link from 'next/link';
+import { useSidebarContext } from '@/contexts/SidebarContext';
 
   export default function Sidebar() {
-    const [isExpanded, setIsExpanded]= useState<boolean>(true);
+    const { isExpanded, toggleSidebar } = useSidebarContext();
 
     return (
       <aside className={`sidebar sidebar__${isExpanded ? 'open' : 'closed'}`}>
@@ -22,7 +23,7 @@
           </div>
           <div 
             className={`flex items-center justify-center bg-slate-200 w-[40px] aspect-square rounded-full cursor-pointer font-medium transition-all duration-200 ease-int-out hover:bg-slate-300`}
-            onClick={() => setIsExpanded((prev) => !prev)}
+            onClick={toggleSidebar}
           >
             <X />
           </div>
