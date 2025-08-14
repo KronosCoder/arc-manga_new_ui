@@ -13,13 +13,16 @@ export default function HomeSwiper() {
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
     >
-        <SwiperSlide className='w-full'>
-            <div className="group cursor-pointer">
-                <div className="banner__section relative overflow-hidden shadow-lg bg-gray-200 z-[1]">
+        <SwiperSlide className='w-full h-full'>
+            <div className="group cursor-pointer h-full">
+                <div className="banner__section relative overflow-hidden shadow-lg bg-gray-200 z-[1] h-full">
+                    <div className="absolute top-0 h-full w-full flex items-center justify-center">
+                        <div className="w-[40%] h-[50%] bg-gray-900/50 rounded-md backdrop-filter backdrop-blur-sm border border-gray-100/20 p-6 text-center left-0"></div>
+                    </div>
                     <img 
                         src="/mock/mock_1.jpg" 
                         alt=""
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover object-right-top  "
                         loading="lazy"
                     />
                 </div>
