@@ -6,10 +6,10 @@ import '../themes/home.css';
 export default function page() {
   return (
     <div className="h-full w-screen">
-      <DesktopNavbar />
       <main className="w-full h-full flex">
         <Sidebar />
         <section className="right__side flex flex-col flex-grow w-full h-full transition-all duration-500 ease-in-out">
+          <DesktopNavbar />
           <HomeSwiper />
         </section>
       </main>

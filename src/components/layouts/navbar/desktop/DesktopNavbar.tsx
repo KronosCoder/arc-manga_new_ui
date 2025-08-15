@@ -26,8 +26,8 @@ export default function DesktopNavbar() {
   }, [isScroll]);
 
   return (
-      <header className={`fixed lg:top-0 ${isScroll ? 'bg-white border border-b-orange-400' : 'bg-transparent'} w-screen flex justify-end py-3 z-[2]`}>
-        <div className="w-full flex items-center justify-between px-10">
+      <header className={`main__nav fixed lg:top-0 ${isScroll ? 'bg-white border border-b-orange-400' : 'bg-transparent'} flex justify-between py-3 z-[2]`}>
+        <div className="w-full flex items-center justify-between px-20">
           <div className="flex items-center justify-start">
             <AlignLeft className='cursor-pointer' onClick={toggleSidebar} />
           </div>
