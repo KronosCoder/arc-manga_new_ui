@@ -9,7 +9,7 @@ import { useSidebarContext } from '@/contexts/SidebarContext';
     const { isExpanded, toggleSidebar } = useSidebarContext();
 
     return (
-      <aside className={`sidebar sidebar__${isExpanded ? 'open' : 'closed'}`}>
+      <aside className={`sidebar sidebar__${isExpanded ? 'open' : 'closed'} hidden lg:block`}>
         <div className="flex items-center justify-between">
           <div className="logo__section cursor-pointer">
             <Link href={'/'}>

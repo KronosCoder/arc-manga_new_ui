@@ -21,8 +21,14 @@ body {
 }
 
 .main__nav {
-    width: calc(100% - 250px) ;
+    width: calc(100% - 250px);
     transition: all 0.3s ease-in-out !important;
+}
+
+@media (max-width: 1023px) {
+    .main__nav {
+        width: 100vw;
+    }
 }
 
 .sidebar {
@@ -59,11 +65,12 @@ body {
 .sidebar__closed ~ .right__side {
     width: 100% !important; 
     margin-left: 0 !important;
+
+    .main__nav {
+        width: 100vw;
+    }
 }
 
-.sidebar__closed ~ .main__nav {
-    width: 100vw !important;
-}
 
 .banner__overlay {
     position: absolute;
@@ -93,6 +100,7 @@ body {
     overflow: hidden;
     user-select: none;
 }
+
 .banner__overlay {
     position: relative;
 

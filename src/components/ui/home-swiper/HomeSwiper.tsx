@@ -8,7 +8,7 @@ export default function HomeSwiper() {
   return (
     <Swiper
         className='w-full h-[425px] banner__swiper'
-        spaceBetween={10}
+        spaceBetween={5}
         slidesPerView={1}
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
@@ -16,11 +16,10 @@ export default function HomeSwiper() {
         <SwiperSlide className='w-full h-full relative'>
             <div className="group cursor-pointer h-full">
                 <section className="banner__section relative overflow-hidden shadow-lg z-[1] h-full">
-                    <div className="absolute top-16 w-full h-full flex flex-col z-[101] px-20 py-2">
-                        <p className='font-normal text-2xl mb-4'>Popular New Titles</p>
+                    <div className="absolute top-24 w-full h-full flex flex-col z-[101] px-20 py-2">
                         <div className="flex">
                             <div className="rounded-md shadow-md h-[18rem] aspect-[7/10] overflow-hidden">
-                                <img src="/mock/mock_2.jpg" className='w-full h-full object-cover transition-all duration-200 ease-in-out hover:scale-125 hover:brightness-110' alt="" />
+                                <img src="/mock/mock_2.jpg" className='w-full h-full object-cover transition-all duration-200 ease-in-out hover:scale-125 hover:brightness-105' alt="" />
                             </div>
                         </div>
                     </div>
