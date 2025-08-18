@@ -12,27 +12,32 @@ body {
     position: relative;
     min-height: 100vh;
     height: 100vh;
-    overflow: hidden;
+    /* min-height: 200vh;
+    height: 200vh; */
+    overflow-x: hidden;
 }
 
 .page__container {
-    width: 85% !important;
+    width: 90%;
     margin: 0 auto;
 }
 
 .main__nav {
     width: calc(100% - 250px);
-    transition: all 0.3s ease-in-out !important;
+    transition: background-color 0.2s ease-in-out !important;
 }
 
 @media (max-width: 1023px) {
+    .page__container {
+        width: 95% !important;
+    }
     .main__nav {
         width: 100vw;
     }
 }
 
 .sidebar {
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     height: 100%;
@@ -42,6 +47,7 @@ body {
     z-index: 10; 
     transition: all 0.3s ease-in-out;
     padding: 20px;
+    overflow: hidden;
 }
 
 .sidebar__closed {
