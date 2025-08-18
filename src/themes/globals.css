@@ -8,6 +8,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+html {
+    scrollbar-gutter: stable;
+}
+
 body {
     position: relative;
     min-height: 100vh;
@@ -24,7 +28,7 @@ body {
 
 .main__nav {
     width: calc(100% - 250px);
-    transition: background-color 0.2s ease-in-out !important;
+    transition: background-color 0.2s ease-in-out;
 }
 
 @media (max-width: 1023px) {
@@ -34,7 +38,7 @@ body {
     .main__nav {
         width: 100vw;
     }
-}
+} 
 
 .sidebar {
     position: fixed;
