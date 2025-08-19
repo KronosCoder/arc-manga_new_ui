@@ -5,7 +5,16 @@ import { createContext } from 'react';
 
 interface SidebarContextType {
     isExpanded: boolean;
+    isMobileExpanded: boolean;
+
+    openSidebar: () => void;
+    closeSidebar: () => void;
+
+    openMobileSidebar: () => void;
+    closeMobileSidebar: () => void;
+
     toggleSidebar: () => void;
+    toggleMobileSidebar: () => void;
 }
 
 const SidebarContext = createContext<SidebarContextType | null>(null);
@@ -23,13 +32,37 @@ interface Props {
 
 export default function SidebarProvider({ children }: Props) {
     const [isExpanded, setIsExpanded] = useState<boolean>(true);
+    const [isMobileExpanded, setMobileIsExpanded] = useState<boolean>(false);
+
     const toggleSidebar = () => {
         setIsExpanded((prev) => !prev);
     }
 
+    const openSidebar = () => {
+        setIsExpanded(true);
+    }
+
+    const closeSidebar = () => {
+        setIsExpanded(false);
+    }
+    
+    const toggleMobileSidebar = () => {
+        setMobileIsExpanded((prev) => { 
+            console.log(`Previous: ${prev} / Newest: ${!prev}`);
+            return !prev;
+        });
+    }
+    
+    const openMobileSidebar = () => {
+        setMobileIsExpanded(true);
+    }
+
+    const closeMobileSidebar = () => {
+        setMobileIsExpanded(false);
+    }
 
     return (
-        <SidebarContext.Provider value={{ isExpanded, toggleSidebar }}>
+        <SidebarContext.Provider value={{ isExpanded, openSidebar, closeSidebar, toggleSidebar, isMobileExpanded, openMobileSidebar, closeMobileSidebar, toggleMobileSidebar }}>
             { children }
         </SidebarContext.Provider>
     )

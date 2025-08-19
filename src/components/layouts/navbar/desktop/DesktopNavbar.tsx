@@ -6,24 +6,14 @@ import { AlignLeft } from 'lucide-react';
 import { useSidebarContext } from '@/contexts/SidebarContext';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useCheckResolution } from '@/components/hooks/useCheckResolution';
 
 
 export default function DesktopNavbar() {
   const [isScroll, setScroll] = useState<boolean>(false);
-  const { isExpanded, toggleSidebar } = useSidebarContext();
-  const [isMobile, setIsMobile] = useState<boolean>(false);
-
-  useEffect(() => {
-    const checkResolution = () => {
-      const yWidth = window.innerWidth < 1024;
-      setIsMobile(yWidth);
-    }
-    checkResolution();
-
-    window.addEventListener('resize', checkResolution); 
-    return () => window.removeEventListener('resize', checkResolution);
-  }, []);
-
+  const { isExpanded, toggleSidebar, isMobileExpanded, toggleMobileSidebar } = useSidebarContext();
+  const isMobile = useCheckResolution(1024);
+  
   useEffect(() => {
     const handleScroll = () => {
       const y = window.pageYOffset; 
@@ -44,7 +34,7 @@ export default function DesktopNavbar() {
         <div className={`page__container w-full flex items-center justify-between`}>
           {/* Left */}
           <div className={`flex items-center justify-start gap-2 ${isMobile || !isExpanded ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-            <AlignLeft className='cursor-pointer' onClick={toggleSidebar} />
+            <AlignLeft className='cursor-pointer' onMouseDown={isMobile ? toggleMobileSidebar : toggleSidebar} />
             <Link href={'/'} className={`relative flex items-center gap-1 `}>
               <div className="rounded-full overflow-hidden w-[40px] aspect-square">
                 <Image
