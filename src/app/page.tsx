@@ -8,7 +8,7 @@ export default function page() {
     <div className="h-full w-screen">
       <main className="w-full h-full flex">
         <Sidebar />
-        <section className="right__side flex flex-col flex-grow w-full h-full transition-all duration-500 ease-in-out">
+        <section className="right__side flex flex-col flex-grow w-full h-full">
           <DesktopNavbar />
           <div className="relative">
             <div className="absolute w-full top-14">
