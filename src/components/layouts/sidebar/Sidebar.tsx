@@ -1,20 +1,33 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { X } from 'lucide-react';
 import { useSidebarContext } from '@/contexts/SidebarContext';
 import Image from 'next/image';
 import Link from 'next/link';
 import './Sidebar.css';
-import Overlay from '@/components/ui/background-overlay/Overlay';
+import { useCheckResolution } from '@/components/hooks/useCheckResolution';
 
 export default function Sidebar() {
-  const { isExpanded, toggleSidebar } = useSidebarContext();
+  const { isExpanded, toggleSidebar, isMobileExpanded, toggleMobileSidebar } = useSidebarContext();
+  const isMobile = useCheckResolution(1024);
+  const sidebarRef = useRef<HTMLElement>(null);
 
+  useEffect(() => { 
+    const handleClickOutSide = (e: MouseEvent) => {
+      if (isMobile && isMobileExpanded && sidebarRef.current && !sidebarRef.current.contains(e.target as Node)) {
+        toggleMobileSidebar();
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutSide);
+
+    return () => document.removeEventListener('mousedown', handleClickOutSide); 
+
+  }, [isMobile, isMobileExpanded, toggleMobileSidebar]);
   
   return (
     <>
-      <aside className={`sidebar sidebar__${isExpanded ? 'open' : 'closed'} hidden lg:block`}>
+      <aside ref={sidebarRef} className={`${!isMobile ? 'sidebar  hidden lg:block' : 'sidebar__mobile block lg:hidden'} ${!isMobile ? (isExpanded ? 'sidebar__open' : 'sidebar__closed') : (isMobileExpanded ? 'sidebar__mobile__open' : 'sidebar__mobile__close')}`}>
         <div className="flex items-center justify-between">
           <div className="logo__section cursor-pointer">
             <Link href="/" className="relative flex items-center gap-1">
@@ -33,7 +46,7 @@ export default function Sidebar() {
           </div>
           <button
             className="flex items-center justify-center bg-slate-200 w-[40px] aspect-square rounded-full cursor-pointerfont-medium transition-all duration-200 ease-in-out hover:bg-gray-300"
-            onClick={toggleSidebar}
+            onMouseDown={!isMobile ? toggleSidebar : toggleMobileSidebar}
             aria-label=""
           >
             <X />
