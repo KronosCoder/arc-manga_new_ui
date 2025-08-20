@@ -6,28 +6,17 @@ import { useSidebarContext } from '@/contexts/SidebarContext';
 import Image from 'next/image';
 import Link from 'next/link';
 import './Sidebar.css';
-import { useCheckResolution } from '@/components/hooks/useCheckResolution';
+import { useCheckResolution } from '@/hooks/useCheckResolution';
+import Overlay from '@/components/ui/background-overlay/Overlay';
 
 export default function Sidebar() {
   const { isExpanded, toggleSidebar, isMobileExpanded, toggleMobileSidebar } = useSidebarContext();
   const isMobile = useCheckResolution(1024);
-  const sidebarRef = useRef<HTMLElement>(null);
-
-  useEffect(() => { 
-    const handleClickOutSide = (e: MouseEvent) => {
-      if (isMobile && isMobileExpanded && sidebarRef.current && !sidebarRef.current.contains(e.target as Node)) {
-        toggleMobileSidebar();
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutSide);
-
-    return () => document.removeEventListener('mousedown', handleClickOutSide); 
-
-  }, [isMobile, isMobileExpanded, toggleMobileSidebar]);
   
   return (
     <>
-      <aside ref={sidebarRef} className={`${!isMobile ? 'sidebar  hidden lg:block' : 'sidebar__mobile block lg:hidden'} ${!isMobile ? (isExpanded ? 'sidebar__open' : 'sidebar__closed') : (isMobileExpanded ? 'sidebar__mobile__open' : 'sidebar__mobile__close')}`}>
+      <Overlay onClick={toggleMobileSidebar} isModalOpen={isMobileExpanded} />
+      <aside className={`${!isMobile ? 'sidebar  hidden lg:block' : 'sidebar__mobile block lg:hidden'} ${!isMobile ? (isExpanded ? 'sidebar__open' : 'sidebar__closed') : (isMobileExpanded ? 'sidebar__mobile__open' : 'sidebar__mobile__close')}`}>
         <div className="flex items-center justify-between">
           <div className="logo__section cursor-pointer">
             <Link href="/" className="relative flex items-center gap-1">

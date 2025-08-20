@@ -6,7 +6,7 @@ import { AlignLeft } from 'lucide-react';
 import { useSidebarContext } from '@/contexts/SidebarContext';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useCheckResolution } from '@/components/hooks/useCheckResolution';
+import { useCheckResolution } from '@/hooks/useCheckResolution';
 
 
 export default function DesktopNavbar() {
