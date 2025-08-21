@@ -87,6 +87,7 @@ body {
 
 .banner__overlay {
     position: relative;
+    /* opacity: 0.8 ; */
 
     &::after {
         content: '';

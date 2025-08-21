@@ -9,6 +9,7 @@ import { useCheckResolution } from '@/hooks/useCheckResolution';
 export default function HeroSection() {
   const isMobile = useCheckResolution(1024);
   const [isMounted, setIsMounted] = useState<boolean>(false);
+  
   const prevButton = useRef<HTMLButtonElement | null>(null);
   const nextButton = useRef<HTMLButtonElement | null>(null);
 
@@ -23,7 +24,7 @@ export default function HeroSection() {
               <div className="page__container">
                 <p className='font-normal text-2xl mb-4 hidden lg:block'>Popular New Titles</p>
               </div>
-            </div>
+            </div>  
             <div className="absolute w-full bottom-0 z-10">
               <div className="page__container">
                 <div className="grid__chevron lg:flex justify-center lg:justify-end items-center gap-4">
