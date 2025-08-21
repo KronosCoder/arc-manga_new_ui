@@ -1,0 +1,20 @@
+.hero__img__index {
+    grid-area: heroImgIndex;
+}
+.hero__prev__button {
+    grid-area: heroPrevButton;
+}
+
+.hero__next__button {
+    grid-area: heroNextButton;
+}
+
+@media (max-width: 1024px) {
+    .grid__chevron {
+        width: 100%;
+        display: grid;
+        grid-template: 'heroPrevButton  heroImgIndex heroNextButton';
+        align-items: center;
+        justify-content: space-between;
+    }
+}
