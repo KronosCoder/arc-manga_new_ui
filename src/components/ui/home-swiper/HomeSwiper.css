@@ -1,3 +1,6 @@
-.genres {
-    @apply inline-flex items-center rounded uppercase text-xs font-bold px-2 leading-[1.5em] text-gray-900 bg-gray-50;
+.hide-scrollbar {
+    scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
 }
