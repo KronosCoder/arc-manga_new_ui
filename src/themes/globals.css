@@ -8,6 +8,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+dialog {
+    all: unset;
+}
+
 body {
     position: relative;
     min-height: 100vh;
