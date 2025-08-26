@@ -7,6 +7,10 @@ import UserModal from '../user-modal/UserModal';
 export default function UserIcon() {
     const [isOpenModal, setOpenModal] = useState<boolean>(false);
     const modalRef = useRef<HTMLDivElement>(null);
+    
+    const toggleUserModal = () => {
+        return setOpenModal((prev) => !prev);
+    }
 
     useEffect(() => {
         const handleClickOutSideModal = (event: MouseEvent) => {
@@ -21,7 +25,7 @@ export default function UserIcon() {
 
   return (
     <>
-        <Overlay onClick={() => setOpenModal(false)} isModalOpen={isOpenModal} />
+        <Overlay onClick={toggleUserModal} isModalOpen={isOpenModal} />
         <div className='relative' ref={modalRef}>
             <div 
                 className="user__icon bg-slate-200 w-[40px] aspect-square rounded-full flex items-center justify-center cursor-pointer"
@@ -29,7 +33,7 @@ export default function UserIcon() {
                 >
                 <User />
             </div>
-            <UserModal isActive={isOpenModal}/>
+            <UserModal isOpenModal={isOpenModal} toggleUserModal={toggleUserModal} /> 
         </div>
     </>
   )

@@ -54,7 +54,7 @@ export default function HomeSwiper({ prevButton, nextButton }: HomeSwiperProps) 
                                     <div className="relative flex flex-col flex-grow flex-wrap">
                                         {/* Title */}
                                         <header>
-                                            <h1 className='font-bold text-2xl lg:text-4xl'>Solo Leveling ( All Seasons )</h1>
+                                            <h1 className='font-extrabold lg:font-bold text-2xl lg:text-4xl'>Solo Leveling ( All Seasons )</h1>
                                         </header>
                                         {/* Genres */}
                                         <div className="hidden sm:flex flex-wrap gap-1 my-3">   
