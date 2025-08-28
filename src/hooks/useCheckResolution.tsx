@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 
 export const useCheckResolution = (breakpoint: number)   => {
-    const [isMobile, setIsMobile] = useState<boolean>(false);
+const [isMobile, setIsMobile] = useState<boolean>(false);
 
     useEffect(() => {
         if (typeof window !== 'undefined') {

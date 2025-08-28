@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import UserModalDesktop from "./Desktop/UserModalDesktop";
 import UserModalMobile from "./Mobile/UserModalMobile";
+import { useCheckResolution } from '@/hooks/useCheckResolution';
 
 interface Props {
     isOpenModal: boolean;
@@ -12,6 +13,7 @@ interface Props {
 
 export default function UserModal({ isOpenModal, toggleUserModal }: Props) {
     const [isMounted,setIsMounted] = useState<boolean>(false);
+    const isMobile = useCheckResolution(768);
 
     useEffect(() => {
         setIsMounted(true);
@@ -19,7 +21,7 @@ export default function UserModal({ isOpenModal, toggleUserModal }: Props) {
 
     if (!isMounted) return null;
 
-    if (window.innerWidth < 1024) return ReactDOM.createPortal(
+    if (isMobile) return ReactDOM.createPortal(
         <UserModalMobile isOpenModal={isOpenModal} toggleUserModal={toggleUserModal} />,document.body
     );
 

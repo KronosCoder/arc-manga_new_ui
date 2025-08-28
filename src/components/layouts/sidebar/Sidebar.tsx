@@ -8,6 +8,7 @@ import Link from 'next/link';
 import './Sidebar.css';
 import { useCheckResolution } from '@/hooks/useCheckResolution';
 import Overlay from '@/components/ui/background-overlay/Overlay';
+import SidebarItems from './sidebar-items/SidebarItems';
 
 export default function Sidebar() {
   const { isExpanded, toggleSidebar, isMobileExpanded, toggleMobileSidebar } = useSidebarContext();
@@ -17,6 +18,7 @@ export default function Sidebar() {
     <>
       <Overlay onClick={toggleMobileSidebar} isModalOpen={isMobileExpanded} />
       <aside className={`${!isMobile ? 'sidebar  hidden lg:block' : 'sidebar__mobile block lg:hidden'} ${!isMobile ? (isExpanded ? 'sidebar__open' : 'sidebar__closed') : (isMobileExpanded ? 'sidebar__mobile__open' : 'sidebar__mobile__close')}`}>
+        {/* Header */}
         <div className="flex items-center justify-between">
           <div className="logo__section cursor-pointer">
             <Link href="/" className="relative flex items-center gap-1">
@@ -41,6 +43,8 @@ export default function Sidebar() {
             <X />
           </button>
         </div>
+        {/* Sidebar items */}
+        <SidebarItems />
       </aside>
     </>
   );
