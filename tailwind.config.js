@@ -4,6 +4,11 @@ module.exports = {
     './src/pages/**/*.{js,ts,jsx,tsx}',
     './src/components/**/*.{js,ts,jsx,tsx}',
   ],
-  theme: { extend: {} },
+  theme: {
+    extend: {
+      colors: {
+        'premium-dark': '#100E09',
+      }
+  } },
   plugins: [],
 }

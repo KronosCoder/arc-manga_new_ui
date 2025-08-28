@@ -17,7 +17,7 @@ export default function Sidebar() {
   return (
     <>
       <Overlay onClick={toggleMobileSidebar} isModalOpen={isMobileExpanded} />
-      <aside className={`${!isMobile ? 'sidebar  hidden lg:block' : 'sidebar__mobile block lg:hidden'} ${!isMobile ? (isExpanded ? 'sidebar__open' : 'sidebar__closed') : (isMobileExpanded ? 'sidebar__mobile__open' : 'sidebar__mobile__close')}`}>
+      <aside className={`${!isMobile ? 'sidebar  hidden lg:block' : 'sidebar__mobile block lg:hidden'} ${!isMobile ? (isExpanded ? 'sidebar__open' : 'sidebar__closed') : (isMobileExpanded ? 'sidebar__mobile__open' : 'sidebar__mobile__close')} overflow-y-auto`}>
         {/* Header */}
         <div className="flex items-center justify-between">
           <div className="logo__section cursor-pointer">
