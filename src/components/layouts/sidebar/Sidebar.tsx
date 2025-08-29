@@ -44,7 +44,7 @@ export default function Sidebar() {
           </button>
         </div>
         {/* Sidebar items */}
-        <SidebarItems />
+        <SidebarItems/>
       </aside>
     </>
   );
