@@ -6,7 +6,7 @@ export default function page() {
 
 
   return (
-    <GeneralLayout title={'Updates'}>
+    <GeneralLayout title={'History'}>
       <div className="">
         <h3>Content</h3>
       </div>

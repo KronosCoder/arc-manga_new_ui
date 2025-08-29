@@ -37,9 +37,9 @@ export default function SidebarItems() {
                 <Link href={'/library'} className={`${getNavItemsClass('/library')} sidebar__items`}>
                     <span>Library</span>
                 </Link>
-                <div className="sidebar__items">
+                <Link href={'/history'} className={`${getNavItemsClass('/history')} sidebar__items`}>
                     <span>Reading History</span>
-                </div>
+                </Link>
             </div>
 
             {/* Titles */}

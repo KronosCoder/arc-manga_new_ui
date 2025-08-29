@@ -103,3 +103,12 @@ body {
         z-index: 10;
     }
 }
+
+.prev__section {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    font-size: 22px;
+    font-weight: 500;
+}

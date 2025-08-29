@@ -1,17 +1,15 @@
-import DesktopNavbar from "@/components/layouts/navbar/desktop/DesktopNavbar";
-import Sidebar from "@/components/layouts/sidebar/Sidebar";
-import HeroSection from "@/components/ui/hero-section/HeroSection";
-import '../../themes/home.css';
+'use client';
+
+import GeneralLayout from "@/components/layouts/general/GeneralLayout";
 
 export default function page() {
+
+
   return (
-    <div className="h-full w-screen">
-      <main className="w-full h-full flex">
-        <Sidebar />
-        <section className="right__side flex flex-col flex-grow w-full h-full">
-            <h1>Library</h1>
-        </section>
-      </main>
-    </div>
+    <GeneralLayout title={'Library'}>
+      <div className="">
+        <h3>Content</h3>
+      </div>
+    </GeneralLayout>
   )
 }
