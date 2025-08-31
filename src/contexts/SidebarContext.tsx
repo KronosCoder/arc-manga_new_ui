@@ -1,6 +1,6 @@
 'use client';
 
-import React, { ReactNode, useContext, useState } from 'react';
+import React, { ReactNode, useContext, useEffect, useState } from 'react';
 import { createContext } from 'react';
 
 interface SidebarContextType {
@@ -31,8 +31,20 @@ interface Props {
 }
 
 export default function SidebarProvider({ children }: Props) {
+    
     const [isExpanded, setIsExpanded] = useState<boolean>(true);
     const [isMobileExpanded, setMobileIsExpanded] = useState<boolean>(false);
+
+    useEffect(() => {
+        if (isMobileExpanded) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, [isMobileExpanded]);
 
     const toggleSidebar = () => {
         setIsExpanded((prev) => !prev);

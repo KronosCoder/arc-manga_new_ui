@@ -19,6 +19,17 @@ export default function UserModal({ isOpenModal, toggleUserModal }: Props) {
         setIsMounted(true);
     },[]);
 
+    useEffect(() => {
+        if (isOpenModal) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+        return () => {
+            document.body.style.overflow = 'auto'
+        };
+    },[isOpenModal]);
+
     if (!isMounted) return null;
 
     if (isMobile) return ReactDOM.createPortal(

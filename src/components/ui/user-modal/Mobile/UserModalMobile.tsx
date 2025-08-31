@@ -12,7 +12,7 @@ interface Props {
 export default function UserModalMobile({ isOpenModal, toggleUserModal }: Props) {
 
   return (
-    <aside className={`fixed top-0 right-0 w-[300px] h-full bg-gray-100 z-[99] transition-all duration-200 ease-in-out ${isOpenModal ? 'opacity-100 translate-x-0 pointer-events-auto' : 'opacity-0 translate-x-[100%] pointer-events-none'} p-6 flex flex-col gap-2`}>
+    <aside className={`fixed top-0 right-0 w-[300px] h-[100vh] bg-gray-100 z-[99] transition-all duration-200 ease-in-out ${isOpenModal ? 'opacity-100 translate-x-0 pointer-events-auto' : 'opacity-0 translate-x-[100%] pointer-events-none'} p-6 flex flex-col gap-2`}>
       <div className="flex justify-start">
          <span 
            className='cursor-pointer p-2 transition-all duration-200 ease-in-outhover:bg-slate-200 rounded-full'

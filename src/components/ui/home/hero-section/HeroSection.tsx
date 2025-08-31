@@ -1,6 +1,6 @@
 'use client';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import HomeSwiper from '../home-swiper/HomeSwiper';
+import HomeSwiper from '../../home/home-swiper/HomeSwiper';
 import React, { useEffect, useState, useRef } from 'react';
 import './HeroSection.css';
 import { useCheckResolution } from '@/hooks/useCheckResolution';
