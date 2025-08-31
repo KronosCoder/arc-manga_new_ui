@@ -2,34 +2,44 @@ import DesktopNavbar from "@/components/layouts/navbar/desktop/DesktopNavbar";
 import Sidebar from "@/components/layouts/sidebar/Sidebar";
 import HeroSection from "@/components/ui/home/hero-section/HeroSection";
 import LatestUpdate from "@/components/ui/home/latest-update/LatestUpdate";
-import { ArrowRight } from "lucide-react";
+import HeaderText from "@/components/ui/header-text/HeaderText";
 import '../themes/home.css';
+import RootLayout from "./layout";
 
 export default function page() {
+  const title = "Home";
+  const description = "This website about manga, manhawa, webtoon etc.";
+  const slug = "http://127.0.0.1:3000/";
+
   return (
-    <div className="h-full w-screen">
-      <main className="w-full h-full flex">
-        <Sidebar />
-        <section className="right__side flex flex-col flex-grow w-full h-full">
-          <DesktopNavbar />
-          <HeroSection />
+    <RootLayout title={title} description={description} slug={slug} >
+      <div className="h-full w-full">
+        <main className="w-full h-full flex">
+          <Sidebar />
+          <section className="right__side flex flex-col flex-grow w-full h-full">
+            <DesktopNavbar />
+            <HeroSection />
+      
+            <div className="page__container py-10">
+              <div className="flex flex-col gap-8">
+                <div className="">
+                  {/* Latest Updates */}
+                  <HeaderText title={'Latest Updates'} />
+                  <LatestUpdate />
+                  {/*  */}
+                </div>
 
-          <div className="page__container py-10">
-            <header className="flex justify-between items-center">
-              <h2 className="font-medium text-xl md:text-2xl">Latest Updates</h2>
-              <button 
-                className="p-2 rounded-full text-1xl transition-all duration-200 ease-in-out hover:bg-gray-200" 
-                aria-label="View more updates"
-              >
-                <ArrowRight />
-              </button>
-            </header>
+                <div className="">
+                  {/* Staff Recommended */}
+                  <HeaderText title={'Staff Recommended'} />
 
-            {/* Latest Updates */}
-            <LatestUpdate />
-          </div>
-        </section>
-      </main>
-    </div>
+                  {/*  */}
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </RootLayout>
   )
 }

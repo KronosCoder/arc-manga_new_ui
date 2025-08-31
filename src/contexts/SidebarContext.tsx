@@ -31,7 +31,6 @@ interface Props {
 }
 
 export default function SidebarProvider({ children }: Props) {
-    
     const [isExpanded, setIsExpanded] = useState<boolean>(true);
     const [isMobileExpanded, setMobileIsExpanded] = useState<boolean>(false);
 

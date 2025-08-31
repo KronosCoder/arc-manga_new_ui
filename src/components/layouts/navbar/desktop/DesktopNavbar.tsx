@@ -17,7 +17,7 @@ export default function DesktopNavbar() {
   useEffect(() => {
     const handleScroll = () => {
       const y = window.pageYOffset; 
-      if (y > 0 && !isScroll) {
+      if (y > 2 && !isScroll) {
         setScroll(true)
       } else if (y === 0 && isScroll) {
         setScroll(false);
@@ -30,27 +30,29 @@ export default function DesktopNavbar() {
   }, [isScroll]);
 
   return (
-      <header className={`main__nav fixed lg:top-0 ${isScroll ? 'bg-white border border-b-orange-400' : 'bg-transparent'} flex py-3 z-[2]`}>
-        <div className={`page__container w-full flex items-center justify-between`}>
-          {/* Left */}
-          <div className={`flex items-center justify-start gap-2 ${isMobile || !isExpanded ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-            <AlignLeft className='cursor-pointer' onMouseDown={isMobile ? toggleMobileSidebar : toggleSidebar} />
-            <Link href={'/'} className={`relative flex items-center gap-1 `}>
-              <div className="rounded-full overflow-hidden w-[40px] aspect-square">
-                <Image
-                  src="/arc_logo.png"
-                  width={100}
-                  height={0}
-                  className='w-full h-full object-cover'
-                  alt='website logo'
-                />
-              </div>
-              <span className='font-semibold text-xl'>ArcManga</span>
-            </Link>
-          </div>
-          {/* Right */}
+    <header className={`main__nav fixed lg:top-0 ${isScroll ? 'bg-white border border-b-2 border-b-premium-dark' : 'bg-transparent'} flex py-3 z-[2]`}>
+      <div className={`page__container w-full flex items-center justify-between`}>
+        {/* Left */}
+        <div className={`flex items-center justify-start gap-2 ${isMobile || !isExpanded ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+          <AlignLeft className='cursor-pointer' onMouseDown={isMobile ? toggleMobileSidebar : toggleSidebar} />
+          <Link href={'/'} className={`relative flex items-center gap-1 `}>
+            <div className="rounded-full overflow-hidden w-[40px] aspect-square">
+              <Image
+                src="/arc_logo.png"
+                width={100}
+                height={0}
+                className='w-full h-full object-cover'
+                alt='website logo'
+              />
+            </div>
+            <span className='font-semibold text-xl'>ArcManga</span>
+          </Link>
+        </div>
+        {/* Right */}
+        <div className="">
           <UserIcon />
         </div>
+      </div>
     </header>
   )
 }
