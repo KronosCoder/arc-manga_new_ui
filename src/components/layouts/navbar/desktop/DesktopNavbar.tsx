@@ -17,12 +17,13 @@ export default function DesktopNavbar() {
   useEffect(() => {
     const handleScroll = () => {
       const y = window.pageYOffset; 
-      if (y > 2 && !isScroll) {
-        setScroll(true)
-      } else if (y === 0 && isScroll) {
-        setScroll(false);
-      }
+        if (y > 2 && !isScroll) {
+          setScroll(true)
+        } else if (y === 0 && isScroll) {
+          setScroll(false);
+        }
     }
+    handleScroll();
     window.addEventListener('scroll' , handleScroll)
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -30,7 +31,7 @@ export default function DesktopNavbar() {
   }, [isScroll]);
 
   return (
-    <header className={`main__nav fixed lg:top-0 ${isScroll ? 'bg-white border border-b-2 border-b-premium-dark' : 'bg-transparent'} flex py-3 z-[2]`}>
+    <header className={`main__nav fixed lg:top-0 ${isScroll ? 'bg-white border border-b-2 border-b-premium-dark' : 'bg-transparent'} flex py-3 z-[20]`}>
       <div className={`page__container w-full flex items-center justify-between`}>
         {/* Left */}
         <div className={`flex items-center justify-start gap-2 ${isMobile || !isExpanded ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>

@@ -1,5 +1,6 @@
 'use client';
 
+import { useCheckResolution } from '@/hooks/useCheckResolution';
 import React, { ReactNode, useContext, useEffect, useState } from 'react';
 import { createContext } from 'react';
 
@@ -21,9 +22,8 @@ const SidebarContext = createContext<SidebarContextType | null>(null);
 
 export const useSidebarContext = () => {
     const context = useContext(SidebarContext);
-    if (!context) throw new Error(`useSidebarContext must be use within SidebarProvider !`);
+    if (!context) throw new Error(`useSidebarContext must be used within SidebarProvider!`);
     return context;
-
 }
 
 interface Props {
@@ -40,41 +40,45 @@ export default function SidebarProvider({ children }: Props) {
         } else {
             document.body.style.overflow = 'auto';
         }
+
         return () => {
-            document.body.style.overflow = 'auto';
+            document.body.style.overflow = 'auto'; // Ensure cleanup happens when component unmounts
         };
     }, [isMobileExpanded]);
 
     const toggleSidebar = () => {
         setIsExpanded((prev) => !prev);
-    }
+    };
 
     const openSidebar = () => {
         setIsExpanded(true);
-    }
+    };
 
     const closeSidebar = () => {
         setIsExpanded(false);
-    }
-    
+    };
+
     const toggleMobileSidebar = () => {
-        setMobileIsExpanded((prev) => { 
+        setMobileIsExpanded((prev) => {
             console.log(`Previous: ${prev} / Newest: ${!prev}`);
             return !prev;
         });
-    }
-    
+    };
+
     const openMobileSidebar = () => {
         setMobileIsExpanded(true);
-    }
+    };
 
     const closeMobileSidebar = () => {
         setMobileIsExpanded(false);
-    }
+    };
 
     return (
-        <SidebarContext.Provider value={{ isExpanded, openSidebar, closeSidebar, toggleSidebar, isMobileExpanded, openMobileSidebar, closeMobileSidebar, toggleMobileSidebar }}>
-            { children }
+        <SidebarContext.Provider value={{
+            isExpanded, openSidebar, closeSidebar, toggleSidebar,
+            isMobileExpanded, openMobileSidebar, closeMobileSidebar, toggleMobileSidebar
+        }}>
+            {children}
         </SidebarContext.Provider>
-    )
+    );
 }
