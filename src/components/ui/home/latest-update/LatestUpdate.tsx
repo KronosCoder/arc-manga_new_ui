@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Eye, MessageCircle, Star, User } from 'lucide-react';
@@ -10,6 +10,12 @@ import SkeletonLoader from './skeleton-loader/SkeletonLoader';
 import "flag-icons/css/flag-icons.min.css";
 
 export default function LatestUpdate() {  
+  const [isMounted, setIsMounted] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const mock_data = mockData;
   const isMobile = useCheckResolution(768);
   const displayData = isMobile ? mock_data.slice(0, 3) : mock_data;
@@ -17,7 +23,7 @@ export default function LatestUpdate() {
   return (
     <article className="mt-2 lg:mt-2">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-        {displayData.length === 0 ? (
+        {isMounted && displayData.length === 0 ? (
           Array(isMobile ? 3 : 6).fill(0).map((_, index) => (
             <SkeletonLoader key={index} />
           ))
@@ -47,7 +53,7 @@ export default function LatestUpdate() {
               {/* Details */}
               <section className="flex flex-col justify-between flex-grow gap-1 min-w-0">
                 <div className="flex flex-col gap-[4px]">
-                  {/* Title with truncation */}
+                  {/* Title */}
                   <h2
                     className="text-base font-semibold truncate max-w-full"
                     title={update.title}
@@ -80,7 +86,7 @@ export default function LatestUpdate() {
                     </div>
                   </div>
 
-                  {/* Volume with truncation */}
+                  {/* Volume  */}
                   <div className="flex gap-2 text-sm font-medium">
                     <span className={`fi fi-${update.country}`} aria-hidden="true"></span>
                     <span className="truncate max-w-[150px]" title={update.volume}>

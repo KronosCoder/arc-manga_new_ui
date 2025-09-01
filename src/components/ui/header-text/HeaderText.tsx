@@ -6,6 +6,7 @@ interface Props {
 }
 
 export default function HeaderText({ title }: Props) {
+
   return (
     <header className="flex justify-between items-center">
         <h2 className="font-medium text-xl md:text-2xl">{ title }</h2>

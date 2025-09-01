@@ -11,11 +11,9 @@ interface Props {
 export default function RootLayout({ children, title, description, slug }: Props) {
   return (
     <html lang="en">
-      <head>
+      <body>
         <title>{`ArcManga | ${title}`}</title>
         <meta name="description" content={description == '' ? 'This website about manga, manhwa and webtoon etc.' : description} />
-      </head>
-      <body className="min-h-screen vsc-domain-localhost vsc-initialized">
         <SidebarProvider>
           {children}
         </SidebarProvider>
