@@ -13,6 +13,7 @@ export default function RootLayout({ children, title, description, slug }: Props
     <html lang="en">
       <body>
         <title>{`ArcManga | ${title}`}</title>
+        <link rel="icon" href="/arc_logo.png" />
         <meta name="description" content={description == '' ? 'This website about manga, manhwa and webtoon etc.' : description} />
         <SidebarProvider>
           {children}

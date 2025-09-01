@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import UserIcon from '@/components/ui/user-icon/UserIcon';
+import UserIcon from '@/components/ui/UserIcon/UserIcon';
 import { AlignLeft } from 'lucide-react';
 import { useSidebarContext } from '@/contexts/SidebarContext';
 import Link from 'next/link';

@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import './Sidebar.css';
 import { useCheckResolution } from '@/hooks/useCheckResolution';
-import Overlay from '@/components/ui/background-overlay/Overlay';
+import Overlay from '@/components/ui/BackgroundOverlay/Overlay';
 import SidebarItems from './sidebar-items/SidebarItems';
 
 export default function Sidebar() {

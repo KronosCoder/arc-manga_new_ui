@@ -8,7 +8,7 @@ interface Props {
 export default function HeaderText({ title }: Props) {
 
   return (
-    <header className="flex justify-between items-center">
+    <header className="flex justify-between items-center mb-4">
         <h2 className="font-medium text-xl md:text-2xl">{ title }</h2>
         <button 
             className="p-2 rounded-full text-1xl transition-all duration-200 ease-in-out hover:bg-gray-200" 

@@ -1,8 +1,8 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
 import { User } from 'lucide-react';
-import Overlay from '../background-overlay/Overlay';
-import UserModal from '../user-modal/UserModal';
+import Overlay from '../BackgroundOverlay/Overlay';
+import UserModal from '../../features/UserModal/UserModal';
 
 export default function UserIcon() {
     const [isOpenModal, setOpenModal] = useState<boolean>(false);

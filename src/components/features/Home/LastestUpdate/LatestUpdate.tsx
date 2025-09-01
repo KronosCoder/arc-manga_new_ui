@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Eye, MessageCircle, Star, User } from 'lucide-react';
 import { mockData } from '@/mock/mockData'; 
 import { useCheckResolution } from '@/hooks/useCheckResolution';
-import SkeletonLoader from './skeleton-loader/SkeletonLoader';
+import SkeletonLoader from './SkeletonLoader/UpdateSkeleton';
 import "flag-icons/css/flag-icons.min.css";
 
 export default function LatestUpdate() {  

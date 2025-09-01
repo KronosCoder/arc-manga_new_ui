@@ -1,10 +1,11 @@
 import DesktopNavbar from "@/components/layouts/navbar/desktop/DesktopNavbar";
 import Sidebar from "@/components/layouts/sidebar/Sidebar";
-import HeroSection from "@/components/ui/home/hero-section/HeroSection";
-import LatestUpdate from "@/components/ui/home/latest-update/LatestUpdate";
-import HeaderText from "@/components/ui/header-text/HeaderText";
+import HeroSection from "@/components/features/Home/HomeSection/HeroSection"
+import LatestUpdate from "@/components/features/Home/LastestUpdate/LatestUpdate";
+import HeaderText from "@/components/ui/HeaderText/HeaderText";
 import '../themes/home.css';
 import RootLayout from "./layout";
+import RecommendSwiper from "@/components/features/Home/RecommendSwiper/RecommendSwiper";
 
 export default function page() {
   const title = "Home";
@@ -19,7 +20,7 @@ export default function page() {
           <section className="right__side flex flex-col flex-grow w-full h-full">
             <DesktopNavbar />
             <HeroSection />
-      
+    
             <div className="page__container py-10">
               <div className="flex flex-col gap-8">
                 <div className="">
@@ -28,15 +29,15 @@ export default function page() {
                   <LatestUpdate />
                   {/*  */}
                 </div>
-
                 <div className="">
                   {/* Staff Recommended */}
                   <HeaderText title={'Staff Recommended'} />
-
+                  <RecommendSwiper />
                   {/*  */}
                 </div>
               </div>
             </div>
+
           </section>
         </main>
       </div>
