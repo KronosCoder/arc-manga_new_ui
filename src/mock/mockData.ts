@@ -45,7 +45,7 @@ export const mockData = [
     id: 4,
     title: 'Absolute Reign',
     slug: '/manga/jujutsu-kaisen/vol1-ch34',
-    image: '/mock/mock-titles/mock_4.png',
+    image: '/mock/mock-titles/mock_4.jpg',
     alt: 'lorem',
     rating: 8.9,
     views: 91,
