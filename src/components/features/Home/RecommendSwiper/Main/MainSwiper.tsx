@@ -1,40 +1,52 @@
 "use client";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { useRef, useEffect } from 'react';
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
 import Image from 'next/image';
 import 'swiper/css';
 import { useCheckResolution } from '@/hooks/useCheckResolution';
-
+import SwiperCore from 'swiper';
+import { useSwiperOnScroll } from '@/hooks/useSwiperOnScroll';
 
 export default function MainSwiper() {
   const isMobile = useCheckResolution(768);
   const isTablet = useCheckResolution(1024);
-
   const slidePerView = isMobile ? 3 : isTablet ? 4 : 5;
+  const swiperRef = useRef<SwiperCore | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  
+  // initail function
+  useSwiperOnScroll({ containerRef, swiperRef });
 
   return (
-    <Swiper 
-      className="w-full flex justify-start"
-      spaceBetween={20}
-      loop={true}
-      slidesPerView={slidePerView}
-  >
-      {Array(10).fill(0).map((_, index) => (
-        <SwiperSlide 
-          key={index}
-          className='w-[calc(100%/3)] md:w-[calc(100%/4)] lg:w-[calc(100%/5)] aspect-[6/8] rounded-md overflow-hidden cursor-pointer max-h-[250]'
-          style={{ boxShadow: "0 0 3px rgba(0,0,0,1)" }}
-        >
-          <Image
-            className='object-cover w-full h-full'
-            src={`/mock/mock-titles/mock_${index + 1}.jpg`}
-            width={500}
-            height={0}
-            loading={'lazy'}
-            alt=''
-          />
-        </SwiperSlide>
-      ))}
-    </Swiper>
-  )
+    <div ref={containerRef} className="w-full py-2">
+      <Swiper
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
+        spaceBetween={0}
+        loop={true}
+        slidesPerView={slidePerView}
+        modules={[Navigation]}
+        className="w-full"
+      >
+        {Array(10)
+          .fill(0)
+          .map((_, index) => (
+            <SwiperSlide
+              key={index}
+              className="aspect-[5/7] w-[128px] sm:w-[256px] grid grid-rows-[1fr_2rem] gap-4 pointer-events-auto pb-10 px-4 !shadow-none cursor-default"
+            >
+              <Image
+                className="object-cover w-full h-full cursor-pointer rounded"
+                src={`/mock/mock-titles/mock_${index + 1}.jpg`}
+                width={500}
+                height={0}
+                loading={'lazy'}
+                alt={`Mock image ${index + 1}`}
+              />
+            </SwiperSlide>
+          ))}
+      </Swiper>
+    </div>
+  );
 }

@@ -20,7 +20,6 @@ export default function page() {
           <section className="right__side flex flex-col flex-grow w-full h-full">
             <DesktopNavbar />
             <HeroSection />
-    
             <div className="page__container py-10">
               <div className="flex flex-col gap-8">
                 <div className="">
