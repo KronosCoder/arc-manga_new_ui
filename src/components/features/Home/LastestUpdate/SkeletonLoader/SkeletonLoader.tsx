@@ -1,9 +1,13 @@
 import React from 'react'
+import { useCheckResolution } from '@/hooks/useCheckResolution';
+
 
 export default function SkeletonLoader() {
-  return (
+  const isMobile = useCheckResolution(768);
+  
+  return (  
     <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {Array(6).fill(0).map((_,index) => (        
+      {Array(isMobile ? 4 : 6).fill(0).map((_,index) => (        
         <div className="animate-pulse flex gap-2 px-2 py-3 bg-gray-200 rounded-md shadow-sm" key={index}>
           {/* Image Skeleton */}
           <div className="w-[80px] h-[120px] bg-gray-300 rounded-md"></div>

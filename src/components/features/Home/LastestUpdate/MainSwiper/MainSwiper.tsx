@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image';
-import Link from 'next/link';
 import { Eye, MessageCircle, Star, User } from 'lucide-react';
 import { mockData } from '@/mock/mockData'; 
+import { useCheckResolution } from '@/hooks/useCheckResolution';
+import Image from 'next/image';
+import Link from 'next/link';
 import "flag-icons/css/flag-icons.min.css";
 
 export default function MainSwiper() {
-    const displayData = mockData.slice(0, 6);
+    const isMobile = useCheckResolution(768); 
+    const displayData =  mockData.slice(0, isMobile ? 4 : 6);
 
   return (
     <article className="mt-2 lg:mt-2">
@@ -14,7 +16,7 @@ export default function MainSwiper() {
         {displayData.map((update) => (
             <Link
               key={update.id} 
-              href={update.slug}
+              href={'/'}
               className="flex gap-2 px-2 md:px-4 py-3 md:shadow-sm md:bg-slate-50 rounded-md cursor-pointer hover:bg-slate-100 transition-colors"
               aria-label={`Read ${update.title} manga update`}
               role="article"
