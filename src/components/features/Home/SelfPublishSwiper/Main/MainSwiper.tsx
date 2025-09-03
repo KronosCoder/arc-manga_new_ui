@@ -1,3 +1,5 @@
+// Main Swiper ( Self Publish )
+
 "use client";
 
 import { useRef } from 'react';
@@ -14,13 +16,18 @@ import 'swiper/css/pagination';
 import './MainSwiper.css';
 
 export default function MainSwiper() {
+  // State
   const isMobile = useCheckResolution(768);
   const isTablet = useCheckResolution(1024);
   const slidePerView = isMobile ? 3 : isTablet ? 4 : 6;
   const swiperRef = useRef<SwiperCore | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  // Initialize 
+  // Self Publish ( Mock Data )
+  const selfPublishData = [...mockData].reverse();
+  // console.log(selfPublishData)
+
+  // Initialize
   useSwiperOnScroll({ containerRef, swiperRef });
 
   return (
@@ -37,10 +44,10 @@ export default function MainSwiper() {
         }}
         className="recommended__swiper w-full !pb-8"
       >
-        {mockData.map((data, index) => (
+        {selfPublishData.map((data, index) => (
             <SwiperSlide
               key={index}
-              className="!lg:max-w-[260px] aspect-[4/6] flex justify-center items-center pointer-events-auto !shadow-none cursor-default relative translate-all duration-200 ease-in-out group overflow-hidden"
+              className="!lg:max-w-[260px] aspect-[4/6] flex justify-center items-center pointer-events-auto !shadow-none cursor-default relative  translate-all duration-200 ease-in-out group overflow-hidden"
             >
               <Link href='/' className="w-full h-full overflow-hidden rounded-md">
                 <Image  
@@ -53,7 +60,7 @@ export default function MainSwiper() {
                 />
               </Link>
 
-               <div 
+              <div 
                 className="absolute w-full h-[60%] transition-pop  bottom-0 p-4 left-0 flex flex-col justify-end pointer-events-none rounded-md bg-gradient-to-t from-black/100 via-black/75 to-transparent translate-y-8 group-hover:translate-y-1 " 
                 style={{ transitionDelay: '.1s' }}
               >

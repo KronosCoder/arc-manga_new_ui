@@ -5,9 +5,11 @@
 }
   
 .swiper-pagination-bullet {
-    @apply !bg-premium-dark !opacity-60
+    background-color: #100E09;
+    opacity: 0.6;               
   }
   
 .swiper-pagination-bullet-active {
-  @apply !bg-premium-dark !opacity-100
+    background-color: #100E09;  
+    opacity: 1;
 }

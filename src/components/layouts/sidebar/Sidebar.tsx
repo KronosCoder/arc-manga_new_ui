@@ -36,7 +36,7 @@ export default function Sidebar() {
             </Link>
           </div>
           <button
-            className="flex items-center justify-center bg-slate-200 w-[40px] aspect-square rounded-full cursor-pointerfont-medium transition-all duration-200 ease-in-out hover:bg-gray-300"
+            className="flex items-center justify-center bg-slate-200 w-[40px] aspect-square rounded-full cursor-pointerfont-medium !transition-colors hover:bg-gray-300"
             onMouseDown={!isMobile ? toggleSidebar : toggleMobileSidebar}
             aria-label=""
           >

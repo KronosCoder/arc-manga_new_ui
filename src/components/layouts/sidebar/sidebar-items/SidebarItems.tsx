@@ -19,7 +19,7 @@ export default function SidebarItems() {
         <section className='flex flex-col gap-4 my-6'>
             {/* Home Section */}
             <div className="section__home flex flex-col gap-2">
-                <Link href={'/'} className={`${getNavItemsClass('/')} rounded-md cursor-pointer flex items-center text-sm gap-2 px-2 py-2 transition-all duration-200 ease-in-out`}>
+                <Link href={'/'} className={`${getNavItemsClass('/')} rounded-md cursor-pointer flex items-center text-sm gap-2 px-2 py-2`}>
                     <House size={24} />
                     <span className=''>Home</span>
                 </Link>
@@ -31,13 +31,13 @@ export default function SidebarItems() {
                     <Bookmark size={24} />
                     <span className=''>Follows</span>
                 </div>
-                <Link href={'/updates'} className={`${getNavItemsClass('/updates')} sidebar__items`}>
+                <Link href={'/updates'} className={`${getNavItemsClass('/updates')} sidebar__items transition-colors`}>
                     <span>Updates</span>
                 </Link>
-                <Link href={'/library'} className={`${getNavItemsClass('/library')} sidebar__items`}>
+                <Link href={'/library'} className={`${getNavItemsClass('/library')} sidebar__items transition-colors`}>
                     <span>Library</span>
                 </Link>
-                <Link href={'/history'} className={`${getNavItemsClass('/history')} sidebar__items`}>
+                <Link href={'/history'} className={`${getNavItemsClass('/history')} sidebar__items transition-colors`}>
                     <span>Reading History</span>
                 </Link>
             </div>
@@ -48,13 +48,13 @@ export default function SidebarItems() {
                     <BookOpen size={24} />
                     <span className=''>Titles</span>
                 </div>
-                <div className="sidebar__items">
+                <div className="sidebar__items transition-colors">
                     <span>Recently Added</span>
                 </div>
-                <div className="sidebar__items">
+                <div className="sidebar__items transition-colors">
                     <span>Latest Updates</span>
                 </div>
-                <div className="sidebar__items">
+                <div className="sidebar__items transition-colors">
                     <span>Random</span>
                 </div>
 
@@ -66,16 +66,16 @@ export default function SidebarItems() {
                     <Pin size={24} />
                     <span className=''>ArcManga</span>
                 </div>
-                <div className="sidebar__items">
+                <div className="sidebar__items transition-colors">
                     <span>About Us</span>
                 </div>
-                <div className="sidebar__items">
+                <div className="sidebar__items transition-colors">
                     <span>Announcements</span>
                 </div>
-                <div className="sidebar__items">
+                <div className="sidebar__items transition-colors">
                     <span>Site Rules</span>
                 </div>
-                <div className="sidebar__items">
+                <div className="sidebar__items transition-colors">
                     <span>Contact</span>
                 </div>
             </div>  

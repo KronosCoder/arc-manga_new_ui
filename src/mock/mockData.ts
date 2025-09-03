@@ -1,9 +1,9 @@
 export const mockData = [ 
   {
     id: 1,
-    title: 'Jujutsu Kaisen',
+    title: 'Jujutsu Kaisen - Vol.1',
     slug: '/manga/jujutsu-kaisen/vol1-ch34',
-    image: '/mock/mock-titles/mock_1.jpg',
+    image: '/mock/mock-titles/86edce00-3ac7-11f0-8dc6-9f9a3b0b5def_webp_original.webp',
     alt: 'Jujutsu Kaisen manga cover for Volume 1 Chapter 34',
     rating: 8.9,
     views: 999,
@@ -15,9 +15,9 @@ export const mockData = [
   },
   {
     id: 2,
-    title: 'Death Note',
+    title: 'Death Note - Vol.1',
     slug: '/manga/jujutsu-kaisen/vol1-ch34',
-    image: '/mock/mock-titles/mock_3.jpg',
+    image: '/mock/mock-titles/1401200210-image-o.jpg',
     alt: 'lorem',
     rating: 9.1,
     views: 888,

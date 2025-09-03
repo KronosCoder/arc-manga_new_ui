@@ -7,7 +7,7 @@ interface Props {
 
 export default function UserModalDesktop({ isOpenModal }: Props) {
   return (
-    <dialog role="modal" className={`${isOpenModal ? 'opacity-100 !scale-100 pointer-events-auto' : 'opacity-0 scale-90 pointer-events-none'} fixed bg-white w-[250px] h-auto z-[99] right-[3vw] top-12 transition-all duration-200 ease-in-out rounded-md p-6 overflow-y-auto flex flex-col gap-2`}>
+    <dialog role="modal" className={`${isOpenModal ? 'opacity-100 !scale-100 pointer-events-auto' : 'opacity-0 scale-90 pointer-events-none'} fixed bg-white w-[250px] h-auto z-[99] right-[3vw] top-12 transition-pop rounded-md p-6 overflow-y-auto flex flex-col gap-2`}>
         {/* User info */}
         <div className="w-full h-32 flex flex-col items-center justify-center  transition-all duration-200 ease-in hover:bg-gray-200 cursor-pointer rounded-[3px]">
             <User   

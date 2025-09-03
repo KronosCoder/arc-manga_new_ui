@@ -6,6 +6,7 @@ import HeaderText from "@/components/ui/HeaderText/HeaderText";
 import '../themes/home.css';
 import RootLayout from "./layout";
 import RecommendSwiper from "@/components/features/Home/RecommendSwiper/RecommendSwiper";
+import SelfPublishSwiper from "@/components/features/Home/SelfPublishSwiper/SelfPublishSwiper";
 
 export default function page() {
   const title = "Home";
@@ -22,18 +23,24 @@ export default function page() {
             <HeroSection />
             <div className="page__container py-10">
               <div className="flex flex-col gap-8">
+                {/* Latest Updates */}
                 <div className="">
-                  {/* Latest Updates */}
                   <HeaderText title={'Latest Updates'} />
                   <LatestUpdate />
-                  {/*  */}
                 </div>
+                {/*  */}
+                {/* Staff Recommended */}
                 <div className="">
-                  {/* Staff Recommended */}
                   <HeaderText title={'Staff Recommended'} />
                   <RecommendSwiper />
-                  {/*  */}
                 </div>
+                {/*  */}
+                {/* Self Publish */}
+                <div className="">  
+                  <HeaderText title={'Self Publish'} />
+                  <SelfPublishSwiper />
+                </div>
+                {/*  */}
               </div>
             </div>
 

@@ -1,3 +1,5 @@
+// Latest Update
+
 import React, { useEffect, useState } from 'react'
 import { Eye, MessageCircle, Star, User } from 'lucide-react';
 import { mockData } from '@/mock/mockData'; 
@@ -17,7 +19,7 @@ export default function MainSwiper() {
             <Link
               key={update.id} 
               href={'/'}
-              className="flex gap-2 px-2 md:px-4 py-3 md:shadow-sm md:bg-slate-50 rounded-md cursor-pointer hover:bg-slate-100 transition-colors"
+              className="flex gap-2 px-2 md:px-4 py-3 md:shadow-sm md:bg-slate-50 rounded-md cursor-pointer hover:bg-slate-200 transition-colors group"
               aria-label={`Read ${update.title} manga update`}
               role="article"
             >
@@ -39,7 +41,7 @@ export default function MainSwiper() {
                 <div className="flex flex-col gap-[4px]">
                   {/* Title */}
                   <h2
-                    className="text-base font-semibold truncate max-w-full"
+                    className="text-base font-semibold truncate max-w-full transition-colors"
                     title={update.title}
                   >
                     {update.title}
