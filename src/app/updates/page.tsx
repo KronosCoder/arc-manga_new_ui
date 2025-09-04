@@ -1,15 +1,12 @@
-'use client';
+export const metadata = {
+  title: "Updates | ArcManga",
+  description: "This website about manga, manhwa, webtoon etc.",
+};
 
-import GeneralLayout from "@/components/layouts/general/GeneralLayout";
-
-export default function page() {
-
-
+export default function Page() {
   return (
-    <GeneralLayout title={'Updates'}>
-      <div className="">
-        <h3>Content</h3>
-      </div>
-    </GeneralLayout>
-  )
+    <div>
+      <h3>Content</h3>
+    </div>
+  );
 }
