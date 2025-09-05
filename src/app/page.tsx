@@ -1,4 +1,3 @@
-import DesktopNavbar from "@/components/layouts/navbar/desktop/DesktopNavbar";
 import HeroSection from "@/components/features/Home/HomeSection/HeroSection";
 import LatestUpdate from "@/components/features/Home/LastestUpdate/LatestUpdate";
 import HeaderText from "@/components/ui/HeaderText/HeaderText";

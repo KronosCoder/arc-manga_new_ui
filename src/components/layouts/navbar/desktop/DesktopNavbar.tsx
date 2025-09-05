@@ -7,7 +7,8 @@ import { useSidebarContext } from '@/contexts/SidebarContext';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useCheckResolution } from '@/hooks/useCheckResolution';
-import { Search } from 'lucide-react';
+import SearchModal from '@/components/features/SearchModal/SearchModal';
+import Searchbar from '@/components/features/Home/Searchbar/Searchbar';
 
 
 export default function DesktopNavbar() {
@@ -51,19 +52,8 @@ export default function DesktopNavbar() {
           </Link>
         </div>
         {/* Right */}
-        <div className="flex items-center justify-end gap-4">
-          {/* Search Tab */}
-          <div className={`w-72 h-full px-4 py-[6px] rounded-[0.425rem] cursor-text ${isScroll ? 'bg-gray-200' : 'bg-slate-100 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 shadow-sm'}`}>
-            <div className="flex items-center justify-between">
-              <span>Search</span>
-              <div className="flex gap-2 justify-end items-center">
-                <span className={`text-[11px] text-gray-700 bg-gray-300 rounded-md py-1 px-2`}>Ctrl</span>
-                <span className={`text-[11px] text-gray-700 bg-gray-300 rounded-md py-1 px-2`}>K</span>
-                <Search size={18} />
-              </div>
-            </div>
-          </div>
-          {/* User Icon */}
+        <div className="flex items-center gap-2">
+          <Searchbar isScroll={isScroll} />
           <UserIcon />
         </div>
       </div>

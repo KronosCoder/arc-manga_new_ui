@@ -42,7 +42,7 @@ export default function SidebarProvider({ children }: Props) {
         }
 
         return () => {
-            document.body.style.overflow = 'auto'; // Ensure cleanup happens when component unmounts
+            document.body.style.overflow = 'auto';
         };
     }, [isMobileExpanded]);
 
@@ -60,7 +60,6 @@ export default function SidebarProvider({ children }: Props) {
 
     const toggleMobileSidebar = () => {
         setMobileIsExpanded((prev) => {
-            console.log(`Previous: ${prev} / Newest: ${!prev}`);
             return !prev;
         });
     };

@@ -20,17 +20,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main className="w-full h-full flex">
             <SidebarProvider>
               <Sidebar />
-              <section className="right__side flex flex-col flex-grow w-full h-full">
+              <section className="right__side flex flex-col flex-grow w-full h-full relative">
                 <DesktopNavbar />
                 {children}
 
-                <footer className="flex flex-col gap-4 items-center py-4">
+                <footer className="flex md:hidden flex-col gap-4 items-center py-4">
                   <div className="flex items-center justify-center text-2xl gap-5">
                       <FontAwesomeIcon icon={faDiscord} />
                       <FontAwesomeIcon icon={faFacebook} />
                       <FontAwesomeIcon icon={faXTwitter} />
                   </div>
-                  <div className="hidden md:flex flex-col items-center">
+                  <div className="flex flex-col items-center">
                       <div className='text-sm'>
                           <span>v1.0.0</span>
                       </div>
