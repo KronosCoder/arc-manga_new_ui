@@ -12,6 +12,7 @@ export const mockData = [
     country: 'th',
     author: 'John Doe',
     published: '1 hours ago',
+    status: 'Completed'
   },
   {
     id: 2,
@@ -26,6 +27,7 @@ export const mockData = [
     country: 'th',
     author: 'John Doe',
     published: '2 hours ago',
+    status: 'Completed'
   },
   {
     id: 3,
@@ -40,6 +42,7 @@ export const mockData = [
     country: 'th',
     author: 'John Doe',
     published: '2 hours ago',
+    status: 'OnGoing'
   },
   {
     id: 4,
@@ -54,6 +57,7 @@ export const mockData = [
     country: 'th',
     author: 'John Doe',
     published: '3 hours ago',
+    status: 'OnGoing'
   },
   {
     id: 5,
@@ -68,6 +72,7 @@ export const mockData = [
     country: 'th',
     author: 'John Doe',
     published: '3 hours ago',
+    status: 'OnGoing'
   },
   {
     id: 6,
@@ -82,6 +87,7 @@ export const mockData = [
     country: 'th',
     author: 'John Doe',
     published: '3 hours ago',
+    status: 'OnGoing'
   },
   {
     id: 7,
@@ -96,6 +102,7 @@ export const mockData = [
     country: 'th',
     author: 'John Doe',
     published: '1 hours ago',
+    status: 'OnGoing'
   },
   {
     id: 8,
@@ -110,6 +117,7 @@ export const mockData = [
     country: 'th',
     author: 'John Doe',
     published: '1 hours ago',
+    status: 'OnGoing'
   },
   {
     id: 9,
@@ -124,6 +132,7 @@ export const mockData = [
     country: 'th',
     author: 'John Doe',
     published: '1 hours ago',
+    status: 'OnGoing'
   },
   {
     id: 10,
@@ -138,5 +147,6 @@ export const mockData = [
     country: 'th',
     author: 'John Doe',
     published: '1 hours ago',
+    status: 'OnGoing'
   },
 ];

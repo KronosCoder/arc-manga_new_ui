@@ -12,6 +12,16 @@ html {
     scrollbar-gutter: stable !important;
 }
 
+.scrollbar__hidden__mobile {
+    scrollbar-width: none;
+}
+
+@media (min-width: 768px) {
+    .scrollbar__hidden__mobile {
+        scrollbar-width: auto !important;
+    }
+}
+
 .unset__input {
     outline: none;
     border: none;

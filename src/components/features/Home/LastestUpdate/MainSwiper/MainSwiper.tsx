@@ -50,10 +50,10 @@ export default function MainSwiper() {
                   {/* Info */}
                   <div className="flex flex-wrap items-center gap-2 text-xs">
                     <div
-                      className="rating text-[#ffc916] flex gap-1 items-center text-sm font-bold"
+                      className="rating text-[#ff7070] flex gap-1 items-center text-sm font-bold"
                       aria-label={`Rating: ${update.rating}`}
                     >
-                      <Star size={18} strokeWidth={2.8} color="#ffc916" aria-hidden="true" />
+                      <Star size={18} strokeWidth={2.8} color="#ff7070" aria-hidden="true" />
                       <span>{update.rating}</span>
                     </div>
                     <div
