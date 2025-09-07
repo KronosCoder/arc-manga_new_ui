@@ -12,6 +12,11 @@ html {
     scrollbar-gutter: stable !important;
 }
 
+.unset__input {
+    outline: none;
+    border: none;
+}
+
 dialog {
     all: unset;
 }
@@ -121,4 +126,13 @@ body {
 
 .transition-pop {
     transition: all .35s cubic-bezier(.68,-.6,.32,1.6), color .35s ease-out;
+}
+
+.transition-pop-dura-200 {
+    transition: all .2s cubic-bezier(.68,-.6,.32,1.6), color .2s ease-out;
+}
+
+.transition-pop-delay-400 {
+    transition: all 0.35s cubic-bezier(.68, -0.6, .32, 1.6), color 0.35s ease-out;
+    transition-delay: 0.4s;
 }

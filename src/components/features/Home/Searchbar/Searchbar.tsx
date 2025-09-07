@@ -1,13 +1,19 @@
 import React from 'react'
 import { Search } from 'lucide-react';
-import SearchModal from '../../SearchModal/SearchModal';
 import { useState } from 'react';
+import dynamic from 'next/dynamic';
+import Overlay from '@/components/ui/BackgroundOverlay/Overlay';
 
-interface Props {
+const SearchModal = dynamic(() => import('./SearchModal/SearchModal'), {
+    ssr: false,
+    loading: () => <div>loading ...</div>,
+});
+
+interface SearchbarProps {
     isScroll: boolean;
 }
 
-export default function Searchbar({ isScroll }: Props) {
+export default function Searchbar({ isScroll }: SearchbarProps) {
     const [isOpenSearchbar, setIsOpenSearchbar] = useState<boolean>(false);
     const toggleSearchbar = () => {
         setIsOpenSearchbar((prev) => !prev);
@@ -15,6 +21,7 @@ export default function Searchbar({ isScroll }: Props) {
 
     return (  
         <>
+        <Overlay isModalOpen={isOpenSearchbar} onClick={toggleSearchbar} />
          <div 
             className="flex items-center justify-end gap-4"
             onMouseDown={toggleSearchbar}
@@ -32,7 +39,7 @@ export default function Searchbar({ isScroll }: Props) {
                 </div>
              </div>
          </div>
-        <SearchModal isOpenSearchBar={isOpenSearchbar} toggleSearchbar={toggleSearchbar} />
+        <SearchModal isOpenSearchbar={isOpenSearchbar} onClose={toggleSearchbar} />
         </>
     )
 }

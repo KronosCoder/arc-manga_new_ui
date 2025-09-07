@@ -1,4 +1,4 @@
-import { useState, useEffect, RefObject } from "react";
+import { useEffect } from "react";
 import SwiperCore from 'swiper';
 
 

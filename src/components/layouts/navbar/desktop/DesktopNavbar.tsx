@@ -7,7 +7,7 @@ import { useSidebarContext } from '@/contexts/SidebarContext';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useCheckResolution } from '@/hooks/useCheckResolution';
-import SearchModal from '@/components/features/SearchModal/SearchModal';
+import SearchModal from '@/components/features/Home/Searchbar/SearchModal/SearchModal';
 import Searchbar from '@/components/features/Home/Searchbar/Searchbar';
 
 

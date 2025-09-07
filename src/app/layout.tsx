@@ -12,7 +12,11 @@ export const metadata: Metadata = {
   description: 'This website about manga, manhwa and webtoon etc.',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en">
       <body>
@@ -23,7 +27,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <section className="right__side flex flex-col flex-grow w-full h-full relative">
                 <DesktopNavbar />
                 {children}
-
                 <footer className="flex md:hidden flex-col gap-4 items-center py-4">
                   <div className="flex items-center justify-center text-2xl gap-5">
                       <FontAwesomeIcon icon={faDiscord} />
