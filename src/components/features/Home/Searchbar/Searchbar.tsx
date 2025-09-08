@@ -15,30 +15,23 @@ interface SearchbarProps {
 
 export default function Searchbar({ isScroll }: SearchbarProps) {
     const [isOpenSearchbar, setIsOpenSearchbar] = useState<boolean>(false);
-    const [searchResult, setSearchResult] = useState<string>('');
+    const [searchQuery, setSearchQuery] = useState<string>('');
 
     const toggleSearchbar = () => {
         setIsOpenSearchbar((prev) => !prev);
     }
 
-    const handleSearch = (query: string) => {
-        setSearchResult(query);
+    const openSearchModal = () => {
+        setIsOpenSearchbar(true);
     }
 
-    // Open modal using shortcuts (ctrl+k)
-    useEffect(() => {
-        const handleOpenModalByShortcuts = (e: KeyboardEvent) => {
-            if (e.ctrlKey && e.key === 'k') {
-                e.preventDefault();
-                setIsOpenSearchbar((prev) => !prev);
-            }
-        }
-        window.addEventListener('keydown', handleOpenModalByShortcuts);
+    const closeSearchModal = () => {
+        setIsOpenSearchbar(false);
+    }
 
-        return () => {
-            window.removeEventListener('keydown', handleOpenModalByShortcuts);
-        }
-    }, []);
+    const handleSearch = (query: string) => {
+        setSearchQuery(query);
+    }
 
     return (  
         <>
@@ -51,7 +44,7 @@ export default function Searchbar({ isScroll }: SearchbarProps) {
             <div className={`w-10 h-10 content-center md:content-none rounded-full  md:w-72 md:h-full md:px-4 md:py-[6px] md:rounded-[0.425rem] cursor-text  ${isScroll ? 'bg-gray-200' : 'bg-slate-100 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 shadow-sm'}`}>
                 <div className="block md:flex items-center justify-between overflow-hidden">
                     <Search className='md:hidden mx-auto' size={18} />
-                    <span className='search__text hidden md:block w-[50%] overflow-hidden text-ellipsis'>{searchResult !== '' ? searchResult : 'Search'}</span>
+                    <span className='search__text hidden md:block w-[50%] overflow-hidden text-ellipsis'>{searchQuery !== '' ? searchQuery : 'Search'}</span>
                     <div className={`hidden md:flex gap-2 justify-end items-center`}>
                         <span className={`text-[11px] text-gray-700 bg-gray-300 rounded-md py-1 px-2`}>Ctrl</span>
                         <span className={`text-[11px] text-gray-700 bg-gray-300 rounded-md py-1 px-2`}>K</span>
@@ -60,7 +53,7 @@ export default function Searchbar({ isScroll }: SearchbarProps) {
                 </div>
              </div>
          </div>
-        <SearchModal isOpenSearchbar={isOpenSearchbar} onClose={toggleSearchbar} onSearch={handleSearch} />
+        <SearchModal isOpenSearchbar={isOpenSearchbar} onOpen={openSearchModal} onClose={closeSearchModal} onToggle={toggleSearchbar} onSearch={handleSearch} />
         </>
     )
 }

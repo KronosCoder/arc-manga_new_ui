@@ -14,9 +14,9 @@ import 'swiper/css/pagination';
 import './MainSwiper.css';
 
 export default function MainSwiper() {
-  const isMobile = useCheckResolution(768);
-  const isTablet = useCheckResolution(1024);
-  const slidePerView = isMobile ? 3 : isTablet ? 4 : 6;
+  const small = useCheckResolution(768);
+  const middle = useCheckResolution(1534);
+  const slidePerView = small ? 3 : middle ? 5 : 6;
   const swiperRef = useRef<SwiperCore | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
 

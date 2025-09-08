@@ -3,6 +3,7 @@ import LatestUpdate from "@/components/features/Home/LastestUpdate/LatestUpdate"
 import HeaderText from "@/components/ui/HeaderText/HeaderText";
 import RecommendSwiper from "@/components/features/Home/RecommendSwiper/RecommendSwiper";
 import SelfPublishSwiper from "@/components/features/Home/SelfPublishSwiper/SelfPublishSwiper";
+import RecentlyUpSwiper from "@/components/features/Home/RecentlyUpSwiper/RecentlyUpSwiper";
 import '../themes/home.css';
 
 export const metadata = {
@@ -27,6 +28,10 @@ export default function Page() {
           <div>
             <HeaderText title={'Self Publish'} />
             <SelfPublishSwiper />
+          </div>
+          <div>
+            <HeaderText title={'Recently Uploads'} />
+            <RecentlyUpSwiper />
           </div>
         </div>
       </div>

@@ -27,6 +27,7 @@
             spaceBetween={0}
             modules={[Navigation]}
             loop={true}
+            autoplay={true}
             slidesPerView={1}
             onBeforeInit={handleBeforeInit}
             onSlideChange={() => console.log('slide change')}
