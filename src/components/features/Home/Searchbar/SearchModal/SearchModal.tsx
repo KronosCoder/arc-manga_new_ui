@@ -106,13 +106,13 @@ export default function SearchModal({ isOpenSearchbar, onOpen, onClose, onToggle
                     ref={inputRef}
                     onChange={handleInputChange}
                     type="text" 
-                    className='flex flex-grow h-full unset__input'
+                    className='w-[80%] h-full unset__input'
                     name="" 
                     id="" 
                     placeholder='Search ...'
                 />
 
-                <div className="flex items-center gap-2 !cursor-default">
+                <div className="flex flex-grow justify-end items-center gap-2 !cursor-default">
                     <span className="cursor-default">
                         <Search />
                     </span>
@@ -129,7 +129,7 @@ export default function SearchModal({ isOpenSearchbar, onOpen, onClose, onToggle
                 className={`fixed top-[4.5rem] left-[50%] translate-x-[-50%] w-[90%] md:w-[80%] lg:w-[50%] bg-white px-4 py-2 ${isOpenSearchbar ? ' transition-pop-delay-400 opacity-100 pointer-events-auto z-[1000] h-auto' : 'opacity-0 pointer-events-none z-[-1] h-0'} rounded-md`}
             >
                 <div 
-                    className={`flex flex-col gap-2 ${searchQuery ? 'py-4' : ''} px-2 max-h-[80vh] overflow-hidden overflow-y-auto`} 
+                    className={`flex flex-col gap-2 ${searchQuery ? 'py-4' : ''} md:px-2 max-h-[80vh] overflow-hidden overflow-y-auto`} 
                     style={{ scrollbarWidth: 'none' }}
                 >
                     {searchQuery && (
@@ -147,7 +147,7 @@ export default function SearchModal({ isOpenSearchbar, onOpen, onClose, onToggle
                             <ul className="flex flex-col gap-3" aria-live="polite"> 
                                 {searchResult.map((data) => (
                                     <li key={data.id || data.title} className="flex gap-2 p-2 bg-gray-100 rounded-md cursor-pointer transition-colors hover:bg-slate-200">
-                                        <div className="min-w-16 w-16 max-h-[75px] min-h-[75px] aspect-[4/6">
+                                        <div className="min-w-16 w-16 max-h-[75px] min-h-[75px] aspect-[4/6 rounded-sm overflow-hidden">
                                             <Image 
                                                 className='w-full h-full object-cover'
                                                 width={100}

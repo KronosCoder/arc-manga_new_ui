@@ -13,7 +13,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import 'swiper/css';
 import 'swiper/css/pagination'; 
-import './MainSwiper.css';
 
 export default function MainSwiper() {
   // State
@@ -47,7 +46,7 @@ export default function MainSwiper() {
         {selfPublishData.map((data, index) => (
             <SwiperSlide
               key={index}
-              className="!lg:max-w-[260px] aspect-[4/6] flex justify-center items-center pointer-events-auto !shadow-none cursor-default relative  translate-all duration-200 ease-in-out group overflow-hidden"
+              className="!lg:max-w-[260px] aspect-[4/6] flex justify-center items-center pointer-events-auto !shadow-none cursor-default relative  translate-all duration-200 ease-in-out group overflow-hidden rounded-md"
             >
               <Link href='/' className="w-full h-full overflow-hidden rounded-md">
                 <Image  
@@ -61,11 +60,14 @@ export default function MainSwiper() {
               </Link>
 
               <div 
-                className="absolute w-full h-[60%] transition-pop  bottom-0 p-4 left-0 flex flex-col justify-end pointer-events-none rounded-md bg-gradient-to-t from-black/100 via-black/75 to-transparent translate-y-8 group-hover:translate-y-1 " 
+                className="absolute w-full h-[60%] transition-pop bottom-0 px-4 py-1 left-0 flex flex-col justify-end pointer-events-none rounded-md bg-gradient-to-t from-black/100 via-black/75 to-transparent group-hover:translate-y-1 leading-3" 
                 style={{ transitionDelay: '.1s' }}
               >
-                <h3 className="text-white font-medium text-[11px] md:text-sm mb-2 transition-colors group-hover:text-amber-400">{data.title}</h3>
-                <span className='text-white text-xs'>John Doe</span>
+                <h3 
+                  className="text-white font-medium text-[11px] md:text-xs mb-2 transition-colors group-hover:text-amber-400 truncate"
+                >
+                  {data.title}
+                </h3>
               </div>
             </SwiperSlide>
           ))}

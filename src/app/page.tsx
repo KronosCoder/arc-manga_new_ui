@@ -16,7 +16,7 @@ export default function Page() {
     <>
       <HeroSection />
       <div className="page__container py-10">
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-3 md:gap-8">
           <div>
             <HeaderText title={'Latest Updates'} />
             <LatestUpdate />

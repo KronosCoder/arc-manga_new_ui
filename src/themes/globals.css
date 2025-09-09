@@ -39,7 +39,22 @@ body {
     height: 200vh; */
     overflow-x: hidden;
 }
+/* Swiper */
 
+.swiper-pagination {
+  position: absolute;
+  z-index: 10;
+}
+  
+.swiper-pagination-bullet {
+    @apply !bg-premium-dark !opacity-60
+  }
+  
+.swiper-pagination-bullet-active {
+  @apply !bg-premium-dark !opacity-100
+}
+
+/*  */
 .page__container {
     width: 90%;
     margin: 0 auto;
