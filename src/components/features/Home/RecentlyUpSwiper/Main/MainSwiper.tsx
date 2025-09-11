@@ -53,10 +53,16 @@ export default function MainSwiper() {
               </Link>
 
               <div 
-                className="absolute w-full h-[60%] transition-pop  bottom-0 px-4 py-1 left-0 flex flex-col justify-end pointer-events-none rounded-md bg-gradient-to-t from-black/100 via-black/75 to-transparent group-hover:translate-y-1 leading-3" 
+                className="absolute w-full h-[60%] transition-pop  bottom-0 p-4 left-0 flex flex-col justify-end pointer-events-none rounded-md bg-gradient-to-t from-black/100 via-black/75 to-transparent translate-y-8 group-hover:translate-y-1 " 
                 style={{ transitionDelay: '.1s' }}
               >
-                <h3 className="text-white font-medium text-[11px] md:text-xs mb-2 transition-colors group-hover:text-amber-400">{data.title}</h3>
+                <h3 
+                  className="text-white font-medium text-[11px] md:text-sm mb-2 transition-pop group-hover:text-amber-400 truncate">
+                  {data.title}
+                </h3>
+                <span className='text-white text-xs'>
+                  John Doe
+                </span>
               </div>
             </SwiperSlide>
           ))}

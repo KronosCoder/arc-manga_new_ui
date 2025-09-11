@@ -5,6 +5,7 @@ import React, { InputHTMLAttributes, useCallback, useEffect, useRef, useState } 
 import ReactDOM from 'react-dom';
 import { ChevronRight, Eye, MessageCircle, Star, Search, X } from 'lucide-react';
 import Image from 'next/image';
+import { useCheckResolution } from '@/hooks/useCheckResolution';
 
 interface Props {
     isOpenSearchbar: boolean;
@@ -35,6 +36,8 @@ export default function SearchModal({ isOpenSearchbar, onOpen, onClose, onToggle
     const [searchQuery, setSearchQuery] = useState<string>('');
     const [searchResult, setSearchResult] = useState<Manga[]>([])
     const inputRef = useRef<HTMLInputElement | null>(null);
+    const isMobile = useCheckResolution(1024)
+
     useBodyScrollLock(isOpenSearchbar);
 
     useEffect(() => {
@@ -100,7 +103,7 @@ export default function SearchModal({ isOpenSearchbar, onOpen, onClose, onToggle
     return ReactDOM.createPortal( 
         <>
             <div
-                className={`fixed top-5 left-[50%] translate-x-[-50%] h-auto bg-white px-4 py-2 ${isOpenSearchbar ? 'pointer-events-auto z-[1000] w-[90%] md:w-[80%] lg:w-[50%]' : 'opacity-0 pointer-events-none z-[-1] w-0'} transition-pop rounded-md flex items-center`}
+                className={`absolute top-5 left-[50%] translate-x-[-50%] h-auto bg-white px-4 py-2 ${isOpenSearchbar ? 'pointer-events-auto z-[1000] w-[90%] md:w-[80%] lg:w-[50%]' : 'opacity-0 pointer-events-none z-[-1] w-0'} transition-pop rounded-md flex items-center`}
             >
                 <input 
                     ref={inputRef}
@@ -126,7 +129,7 @@ export default function SearchModal({ isOpenSearchbar, onOpen, onClose, onToggle
             </div>
 
             <div 
-                className={`fixed top-[4.5rem] left-[50%] translate-x-[-50%] w-[90%] md:w-[80%] lg:w-[50%] bg-white px-4 py-2 ${isOpenSearchbar ? ' transition-pop-delay-400 opacity-100 pointer-events-auto z-[1000] h-auto' : 'opacity-0 pointer-events-none z-[-1] h-0'} rounded-md`}
+                className={`absolute top-[4.5rem] left-[50%] translate-x-[-50%] w-[90%] md:w-[80%] lg:w-[50%] bg-white px-4 py-2 ${isOpenSearchbar ? ' transition-pop-delay-400 opacity-100 pointer-events-auto z-[1000] h-auto' : 'opacity-0 pointer-events-none z-[-1] h-0'} rounded-md`}
             >
                 <div 
                     className={`flex flex-col gap-2 ${searchQuery ? 'py-4' : ''} md:px-2 max-h-[80vh] overflow-hidden overflow-y-auto`} 
