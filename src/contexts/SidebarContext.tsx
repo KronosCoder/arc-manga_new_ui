@@ -1,6 +1,5 @@
 'use client';
 
-import { useCheckResolution } from '@/hooks/useCheckResolution';
 import React, { ReactNode, useContext, useEffect, useState } from 'react';
 import { createContext } from 'react';
 

@@ -42,7 +42,7 @@ export default function SearchModal({ isOpenSearchbar, onOpen, onClose, onToggle
 
     useEffect(() => {
         if (isOpenSearchbar && inputRef.current) {
-            //  setTimeout 0 = wait for dom laoded
+            //  setTimeout 0 = wait for dom lded
             setTimeout(() => {
                 inputRef.current?.focus();
             }, 0);

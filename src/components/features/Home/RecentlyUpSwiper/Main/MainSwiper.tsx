@@ -29,7 +29,7 @@ export default function MainSwiper() {
         spaceBetween={10}
         loop={true}
         slidesPerView={slidePerView}
-        modules={[Navigation, Pagination  ]}
+        modules={[Navigation, Pagination]}
         pagination={{
           clickable: true,
           dynamicBullets: true,

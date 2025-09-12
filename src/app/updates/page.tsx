@@ -1,3 +1,5 @@
+import GeneralLayout from "@/components/layouts/general/GeneralLayout";
+
 export const metadata = {
   title: "Updates | ArcManga",
   description: "This website about manga, manhwa, webtoon etc.",
@@ -5,8 +7,10 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <div>
+    <>
+    <GeneralLayout title={"Updates"}>
       <h3>Content</h3>
-    </div>
+    </GeneralLayout>
+    </>
   );
 }
