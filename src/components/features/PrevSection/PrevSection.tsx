@@ -17,7 +17,7 @@ const router = useRouter();
     <>
         <div className="prev__section">
           <div 
-            className="flex items-center justify-center p-2 transition-all duration-200 ease-in-outcursor-pointer hover:bg-gray-300 rounded-full "
+            className="flex items-center justify-center p-2 transition-all duration-200 ease-in-outcursor-pointer hover:bg-gray-300 rounded-full cursor-pointer"
             onMouseDown={redirectPreviousPage}
           >
             <ArrowLeft />
