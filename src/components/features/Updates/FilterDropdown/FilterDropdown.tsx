@@ -7,8 +7,11 @@ import { ChevronDown } from 'lucide-react';
 export default function FilterDropdown() {
     const [isFocus, setIsFocus] = useState<boolean>(false);
     const defaultItems = [
-        { key: 'newest', label: 'Newest First' },
-        { key: 'oldest', label: 'Oldest First' },
+        { key: 'today', label: 'Today' },
+        { key: 'threeday', label: '3 Days' },
+        { key: 'sevenday', label: '7 Days' },
+        { key: 'fourteenday', label: '14 Days' },
+        { key: 'thirtyday', label: '30 Days' },
     ];
 
     return (
