@@ -1,44 +1,72 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './FilterDropdown.css';
+import { useRouter } from 'next/navigation';
 import { ChevronDown } from 'lucide-react';
 
 export default function FilterDropdown() {
-    const [isFocus, setIsFocus] = useState<boolean>(false);
+    // Router
+    const router = useRouter();
+
     const defaultItems = [
-        { key: 'today', label: 'Today' },
-        { key: 'threeday', label: '3 Days' },
-        { key: 'sevenday', label: '7 Days' },
-        { key: 'fourteenday', label: '14 Days' },
-        { key: 'thirtyday', label: '30 Days' },
+        { key: 'all', label: 'All' },
+        { key: 'favorite', label: 'Favorites' },
     ];
+    
+    const [isFocus, setIsFocus] = useState<boolean>(false);
+    const [selectData, setSelectData] = useState<string | null>(defaultItems[0].label ?? null);
+    const dropdownRef = useRef<HTMLDivElement | null>(null);
+
+    // Set select filter's data
+    function handleSelect(optionIndex: number) {
+        setSelectData(defaultItems[optionIndex].label);
+        // router.push(`?filter=${defaultItems[optionIndex].key}`)
+    }
+
+    // Check outside click
+    useEffect(() => {
+        const handleOutSideClick = (e: MouseEvent) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+                setIsFocus(false);
+            }
+        }
+
+        document.addEventListener('mousedown', handleOutSideClick);
+
+        return () => {
+             document.removeEventListener('mousedown', handleOutSideClick);
+        }
+    },[]);
 
     return (
-        <div className="dropdown__wrapper relative">
-            <label htmlFor="filter-dropdown" className="sr-only">
+        <div className="dropdown__wrapper flex gap-2 items-center" ref={dropdownRef}>
+            <span>
                 Filter Options
-            </label>
-            <select
-                id="filter-dropdown"
-                name="filter"
-                className="filter__dropdown pl-4 pr-10 py-2 bg-gray-50 rounded-md cursor-pointer appearance-none text-center"
-                onClick={() => setIsFocus((prev) => !prev)}
-                onBlur={() => setIsFocus(false)}
-
-            >
-                {defaultItems.map((data) => (
-                <option key={data.key} value={data.key}>
-                    {data.label}
-                </option>
-                ))}
-            </select>
-            <span
-                className={`absolute right-2 top-[50%] translate-y-[-50%] pointer-events-none transition-pop duration-300 ease-in-out ${isFocus ? 'rotate-180' : 'rotate-0'}`}
-                aria-hidden="true"
-            >
-                <ChevronDown className="dropdown__arrow" />
             </span>
+            <button
+                className='bg-gray-100 w-36 py-2 rounded-md text-start px-4 relative border'
+                onMouseDown={() => setIsFocus((prev) => !prev)}
+            >
+                <span>{selectData}</span>
+                <span className={`absolute top-0 translate-y-[40%] right-2`}>
+                    <ChevronDown className={`text-gray-500  transition-pop  ${isFocus ? 'rotate-[180deg]' : ''}`} />
+                </span>
+
+                
+
+                <ul className={`${isFocus ? 'pointer-events-auto h-28 opacity-100' : 'pointer-events-auto h-0 opacity-0'} absolute flex flex-col gap-1 right-0 -bottom-0 translate-y-[110%] bg-gray-100 shadow-sm w-full py-3 rounded-md border transition-pop`}>
+                    {defaultItems.map((data,index) => (
+                        <li 
+                            className={`text-center transition-all duration-200 ease-in-out hover:bg-gray-300 py-2 ${selectData == data.label ? 'bg-gray-300' : ''}`}
+                            onMouseDown={() => handleSelect(index)}
+                            key={`option-${index}`}
+                        >
+                            {data.label}
+                        </li>
+                    ))}
+                </ul>
+            </button>
         </div>
     );
 }

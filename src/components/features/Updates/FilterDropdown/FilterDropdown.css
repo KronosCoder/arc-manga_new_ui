@@ -1,7 +1,10 @@
 .filter__dropdown {
     appearance: none;
+    position: relative;
     -webkit-appearance: none;
 }
+
+
 
 .filter__dropdown:focus {
     outline: none !important;

@@ -19,7 +19,7 @@ export default function Page() {
         <FilterDropdown />
       </section>
 
-      {!true ? (
+      {true ? (
       <div className="h-full w-full flex flex-col items-center justify-center py-4 gap-4 text-gray-300">
         <MessageCircleQuestionMark size={124} />
         <h3 className="text-center text-xl font-normal">
