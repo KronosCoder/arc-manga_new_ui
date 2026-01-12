@@ -6,7 +6,7 @@ import FollowUpdates from "@/components/features/Updates/FollowUpdates/FollowUpd
 
 export const metadata = {
   title: "Updates | ArcManga",
-  description: "This website about manga, manhwa, webtoon etc.",
+  description: "This website about manga, manhwa, webtoon etc.",  
 };
 
 export default function Page() {

@@ -60,10 +60,10 @@ export default function UserModalMobile({ isOpenModal, toggleUserModal }: Props)
        </button>
        <hr />
        {/* Auth Buttons  */}
-       <button className='w-full py-2 font-semibold bg-black text-white rounded-[5px]transition-all duration-200 hover:bg-gray-800'>
+       <button className='w-full py-2 font-semibold bg-black text-white rounded-[5px] transition-all duration-200 hover:bg-gray-700'>
            Sign In
        </button>
-       <button className='w-full py-2 font-semibold rounded-[5px] transition-all duration-200hover:bg-gray-200'>
+       <button className='w-full py-2 font-semibold rounded-[5px] transition-all duration-200 hover:bg-gray-200'>
            Sign Up
        </button>
     </aside>

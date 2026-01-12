@@ -20,6 +20,7 @@ export default function UserModal({ isOpenModal, toggleUserModal }: Props) {
     useEffect(() => {
         setIsMounted(true);
     },[]);
+
     if (!isMounted) return null;
 
 
